@@ -322,7 +322,7 @@ export default function App() {
   }, [activeWords, sortBy, sortTrigger, randomSeed]);
 
   return (
-    <div className={`min-h-screen bg-bone-cream text-ink p-6 md:pl-12 md:pr-24 md:py-12 pt-28 font-ui select-none overflow-x-hidden ${dragState ? 'cursor-grabbing' : ''}`}>
+    <div className={`min-h-screen bg-bone-cream text-ink px-4 pr-12 sm:px-6 sm:pr-14 md:pl-12 md:pr-24 py-6 pt-32 sm:pt-28 md:py-12 font-ui select-none overflow-x-hidden ${dragState ? 'cursor-grabbing' : ''}`}>
       
       {toastMessage && (
         <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[100] bg-ink text-paper-white px-6 py-3 rounded-full text-body-sm font-medium animate-in flex items-center gap-2">
@@ -332,11 +332,11 @@ export default function App() {
 
       <AlphabetScrubber words={allWordsWithData} />
 
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-bone-cream bg-opacity-90 backdrop-blur-md px-6 py-4 transition-all border-b border-ink border-opacity-10">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-bone-cream/90 backdrop-blur-md px-3 sm:px-6 py-2.5 sm:py-4 transition-all border-b border-ink/10">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 sm:gap-4">
           
-          <div className="flex items-center gap-2 flex-1">
-            <div className="relative w-[280px] shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-1 flex-wrap sm:flex-nowrap">
+            <div className="relative w-full sm:w-[220px] md:w-[280px] shrink-0">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-ink opacity-40" />
               <input 
                 type="text" value={searchTerm} placeholder="Search english or chinese..." onChange={(e) => setSearchTerm(e.target.value)}
@@ -358,7 +358,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0 pr-4">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0 pr-8 sm:pr-0">
              <button 
                onClick={() => setShowFront(!showFront)} 
                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-[12px] transition-all border-[1.5px] border-ink ${showFront ? 'bg-ink text-paper-white' : 'bg-transparent text-ink hover:bg-ink/5 opacity-50'}`}
