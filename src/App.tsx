@@ -44,7 +44,7 @@ const AlphabetScrubber = ({ words }) => {
   };
 
   return (
-    <div className="fixed right-1 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-1 p-2">
+    <div className="fixed right-1 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-[2px] sm:gap-1 p-1 bg-bone-cream/70 backdrop-blur-xs rounded-full border border-ink/10 shadow-xs max-h-[85vh] overflow-y-auto custom-scrollbar">
       {letters.map(letter => {
         const matchingWords = words.filter(w => w.en.toUpperCase().startsWith(letter));
         const hasWords = matchingWords.length > 0;
@@ -351,7 +351,7 @@ export default function App() {
                <button onClick={() => { setSortBy('flipCount'); setSortTrigger(p => p + 1); }} className={`p-1.5 rounded-[10px] transition-colors ${sortBy === 'flipCount' ? 'bg-ink text-paper-white' : 'text-ink hover:bg-ink/10'}`} title="By Flip Count"><ArrowDown className="w-4 h-4" /></button>
             </div>
             
-            <div className="hidden lg:flex items-center gap-1 bg-transparent border-[1.5px] border-ink rounded-[16px] p-1 ml-2">
+            <div className="flex items-center gap-1 bg-transparent border-[1.5px] border-ink rounded-[16px] p-1 ml-1 sm:ml-2">
                <button onClick={() => setUserCols(prev => Math.min(5, prev + 1))} disabled={userCols >= 5} className="p-1.5 rounded-[10px] text-ink hover:bg-ink/10 disabled:opacity-30 transition-colors" title="Zoom Out (More Columns)"><ZoomOut className="w-4 h-4" /></button>
                <span className="font-mono text-[12px] w-4 text-center text-ink font-bold">{userCols}</span>
                <button onClick={() => setUserCols(prev => Math.max(3, prev - 1))} disabled={userCols <= 3} className="p-1.5 rounded-[10px] text-ink hover:bg-ink/10 disabled:opacity-30 transition-colors" title="Zoom In (Fewer Columns)"><ZoomIn className="w-4 h-4" /></button>
@@ -487,7 +487,7 @@ export default function App() {
         )}
       </div>
 
-      <main className="max-w-7xl mx-auto transition-all duration-300">
+      <main className="max-w-7xl mx-auto pr-8 sm:pr-12 md:pr-14 transition-all duration-300">
         <div className="space-y-24">
           {Object.entries(groupedData).map(([groupName, words], groupIdx) => {
             if (words.length === 0) return null;

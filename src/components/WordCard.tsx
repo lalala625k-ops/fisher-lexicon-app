@@ -48,8 +48,7 @@ export const WordCard = ({ word, delay, connections, onAddConnection, onRemoveCo
   const handleMouseEnterBottom = () => {
     if (cardRef.current) {
        const rect = cardRef.current.getBoundingClientRect();
-       if (window.innerWidth - rect.right < 340) setPopoverPos('left');
-       else setPopoverPos('right');
+       if (window.innerWidth - rect.right < 320 && rect.left > 320) setPopoverPos('left'); else setPopoverPos('right');
     }
     // 1-second delay before showing topology
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
@@ -87,7 +86,7 @@ export const WordCard = ({ word, delay, connections, onAddConnection, onRemoveCo
               </div>
             )}
             <div className="relative w-full flex flex-col items-center justify-center">
-              <span className={`font-display leading-tight tracking-tight text-center break-words px-2 transition-all duration-300 ${isCollapsed ? 'text-body font-bold' : 'text-heading'}`}>
+              <span className={`font-display leading-tight tracking-tight text-center break-all sm:break-words px-2 transition-all duration-300 ${isCollapsed ? 'text-body font-bold' : word.en.length > 13 ? 'text-subheading' : 'text-heading'}`}>
                 {word.en}
               </span>
             </div>
